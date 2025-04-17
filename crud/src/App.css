@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* ==================== */
+  /* border: 1px solid red; */
+}
+:root {
+  --primary-color: #424769;
+  --secondary-color: #ffc694;
+  /* text-color */
+  --text-white: #fff;
+  --text-gray: #424769;
+  /* background */
+  --background: #676c8e;
+}
+body {
+  background: #2d3250;
+}
+h1,
+h2 {
+  color: var(--text-white);
+  border-bottom: 2px solid var(--secondary-color) !important;
+  width: fit-content;
+  margin: 0 auto;
+}
+h2 {
+  font-size: 22px;
+}
+hr {
+  background: #fff !important;
+  height: 3px;
+  border: none;
+}
+/* ==============Search bar================= */
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.search__input {
+  font-family: inherit;
+  font-size: inherit;
+  background-color: var(--background);
+  border: none;
+  color: var(--primary-color);
+  padding: 0.58rem 1rem;
+  border-radius: 5px;
+  width: 100%;
+  transition: all ease-in-out 0.5s;
+  margin-right: -2rem;
+}
+
+.search__input:hover,
+.search__input:focus {
+  box-shadow: 0 0 1em #00000013;
+}
+
+.search__input:focus {
+  outline: none;
+  background-color: var(--secondary-color);
+}
+
+.search__input::-webkit-input-placeholder {
+  font-weight: 100;
+  color: #ccc;
+}
+
+.search__input:focus + .search__button {
+  background-color: var(--secondary-color);
+}
+
+.search__button {
+  border: none;
+  background-color: var(--background);
+  margin-top: 0.1em;
+  transition: all ease-in-out 0.5s;
+}
+
+.search__button:hover {
+  cursor: pointer;
+}
+
+.search__icon {
+  height: 1.3em;
+  width: 1.3em;
+  /* fill: #b4b4b4; */
+  margin-right: 10px;
+  margin-bottom: 4px;
+  /* background: #575656; */
+}
+/* ===========Search bar exit=============== */
+/* ===========Table =============== */
+/* tables */
+.user-part {
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--background) !important;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+thead {
+  /* border-top-left-radius: 5px; */
+  /* border-top-right-radius: 15px; */
+  background: var(--primary-color);
+}
+thead tr th:first-child {
+  border-top-left-radius: 15px;
+}
+thead tr th:last-child {
+  border-top-right-radius: 15px;
+}
+thead th,
+td {
+  padding: 8px;
+  text-align: center;
+}
+tbody tr:hover {
+  background: var(--primary-color) !important;
+}
+/* ===========Table exit=============== */
+/* ===========Modal exit=============== */
+.modal {
+  h2 {
+    color: var(--text-white);
+  }
+}
+.modal-dialog {
+  max-width: 80%;
+}
+.modal-content {
+  background: var(--text-gray);
+}
+/* ===========Modal exit=============== */
+/* ===========Formulaire exit=============== */
+form input {
+  background: var(--background) !important;
+  border-radius: 0 !important;
+  color: var(--text-white) !important;
+  border: none !important;
+}
+form input:focus {
+  border-left: 5px solid var(--secondary-color) !important;
+}
+form label:after {
+  background: none !important;
+  color: var(--text-gray) !important;
+  margin-bottom: 5px;
+}
+hr {
+  border: 1px solid #ffc694 !important;
+  opacity: 1;
+}
+/* buttons */
+button {
+  font-weight: 500;
+  border: none;
+}
+#supptbtn {
+  background: red;
+  padding: 10px;
+  color: var(--text-gray);
+  border-radius: 5px;
+}
+#editbtn {
+  background: rgb(171, 66, 2);
+  padding: 10px;
+  color: var(--text-white);
+  border-radius: 5px;
+  font-weight: 600;
+}
+#addbtn {
+  background: var(--secondary-color);
+  color: var(--text-gray);
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+/* ===========Formulaire exit=============== */

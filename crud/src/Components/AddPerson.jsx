@@ -1,7 +1,7 @@
 import React from "react";
 import Formulaire from "./Formulaire";
 
-const AddPerson = () => {
+const AddPerson = ({ ajouterUtilisateur }) => {
   return (
     <div className="p-1 col-6">
       <button
@@ -16,7 +16,7 @@ const AddPerson = () => {
       <div
         className="modal fade"
         id="Formulaire"
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="FormulaireLabel"
         aria-hidden="true"
       >
@@ -28,25 +28,7 @@ const AddPerson = () => {
               </h2>
             </div>
             <div className="modal-body">
-              <Formulaire />
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn"
-                id="addbtn"
-                data-bs-dismiss="modal"
-              >
-                Ajouter
-              </button>
-              <button
-                type="button"
-                className="btn"
-                id="editbtn"
-                data-bs-dismiss="modal"
-              >
-                Enregistrer
-              </button>
+              <Formulaire ajouterUtilisateur={ajouterUtilisateur} />
             </div>
           </div>
         </div>

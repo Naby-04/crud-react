@@ -1,21 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import "../App.css";
 
-const Formulaire = () => {
+const Formulaire = ({ ajouterUtilisateur }) => {
+  // ==============================
+  const [utilisateur, setUtilisateur] = useState({
+    Prenom: "",
+    nom: "",
+    email: "",
+    telephone: "",
+  });
+
+  // Fonction pour gerer les mis à jour d'un champ
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUtilisateur({
+      ...utilisateur,
+      [name]: value,
+    });
+  };
+  // Fonction pour gerer l'envoie du formulaire
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    ajouterUtilisateur(utilisateur); // pour envoyer l'objet
+    setUtilisateur({
+      Prenom: "",
+      nom: "",
+      email: "",
+      telephone: "",
+    });
+  };
+
+  // ==============================
   return (
     <div>
       <form
         className="row p-0"
-        // onSubmit={currentIndex === null ? handleSubmit : handleEdit}
+        onSubmit={handleSubmit}
+        // onAjout={ajouterUtilisateur}
       >
         <div className="form-floating mb-3 col-12 col-md-6">
           <input
             type="text"
             className="form-control"
-            name="prenom"
+            name="Prenom"
             placeholder="Prenom"
-            // value={user.prenom}
-            // onChange={handleChange}
+            value={utilisateur.Prenom}
+            onChange={handleChange}
             required
           />
           <label className="ms-3 w-50">Prénoms</label>
@@ -26,8 +56,8 @@ const Formulaire = () => {
             className="form-control"
             name="nom"
             placeholder="Nom"
-            // value={user.nom}
-            // onChange={handleChange}
+            value={utilisateur.nom}
+            onChange={handleChange}
             required
           />
           <label className="ms-3 w-50">Nom</label>
@@ -38,20 +68,20 @@ const Formulaire = () => {
             className="form-control"
             name="email"
             placeholder="name@example.com"
-            // value={user.email}
-            // onChange={handleChange}
+            value={utilisateur.email}
+            onChange={handleChange}
             required
           />
           <label className="ms-3 w-50">Email</label>
         </div>
         <div className="form-floating mb-3 col-12 col-md-6">
           <input
-            type="number"
+            type="telephone"
             className="form-control"
             name="telephone"
             placeholder="#"
-            // value={user.telephone}
-            // onChange={handleChange}
+            value={utilisateur.telephone}
+            onChange={handleChange}
             required
           />
           <label className="ms-3 w-50">Téléphone</label>

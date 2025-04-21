@@ -31,6 +31,12 @@ hr {
   height: 3px;
   border: none;
 }
+.blur-background {
+  filter: blur(5px);
+  pointer-events: none; /* empêche de cliquer sur les éléments floutés */
+  user-select: none; /* empêche la sélection de texte dans le fond */
+  /* transition: filter 0.3s ease; */
+}
 /* ==============Search bar================= */
 .search {
   display: flex;

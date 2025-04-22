@@ -37,6 +37,13 @@ hr {
   user-select: none; /* empêche la sélection de texte dans le fond */
   /* transition: filter 0.3s ease; */
 }
+.opacity-50 {
+  opacity: 0.5;
+}
+
+.table-danger {
+  background-color: #f8d7da !important;
+}
 /* ==============Search bar================= */
 .search {
   display: flex;

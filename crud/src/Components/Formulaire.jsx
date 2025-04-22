@@ -7,6 +7,7 @@ const Formulaire = ({ ajouterUtilisateur, utilisateurEdit }) => {
     nom: "",
     email: "",
     telephone: "",
+    banni: false,
   });
 
   useEffect(() => {

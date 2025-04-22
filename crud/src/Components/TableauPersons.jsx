@@ -5,6 +5,7 @@ const TableauPersons = ({
   supprimerUtilisateur,
   voirUtilisateur,
   modifierUtilisateur,
+  bannirUtilisateur,
 }) => {
   return (
     <div className="mt-2">
@@ -22,19 +23,24 @@ const TableauPersons = ({
           </thead>
           <tbody>
             {utilisateurs.map((user, index) => (
-              <tr key={index}>
+              <tr
+                key={index}
+                className={user.banni ? "table-danger opacity-50" : ""}
+              >
                 <td>{user.Prenom}</td>
                 <td>{user.nom}</td>
                 <td>{user.email}</td>
                 <td>{user.telephone}</td>
                 <td>
                   <button
+                    disabled={user.banni}
                     className="btn btn-primary me-2"
                     onClick={() => voirUtilisateur(user)}
                   >
                     <i className="fa-solid fa-eye"></i>
                   </button>
                   <button
+                    disabled={user.banni}
                     className="btn btn-warning me-2"
                     data-bs-toggle="modal"
                     data-bs-target="#Formulaire"
@@ -43,10 +49,21 @@ const TableauPersons = ({
                     <i className="fa-solid fa-pencil"></i>
                   </button>
                   <button
+                    disabled={user.banni}
                     className="btn btn-danger me-2"
                     onClick={() => supprimerUtilisateur(index)}
                   >
                     <i className="fa-solid fa-trash"></i>
+                  </button>
+                  <button
+                    className="btn bg-dark text-light me-2"
+                    onClick={() => bannirUtilisateur(index)}
+                  >
+                    {user.banni ? (
+                      <i className="fa-solid fa-unlock"></i> // bouton débannir
+                    ) : (
+                      <i className="fa-solid fa-ban"></i> // bouton bannir
+                    )}
                   </button>
                 </td>
               </tr>

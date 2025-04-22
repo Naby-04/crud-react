@@ -39,6 +39,12 @@ function App() {
     setUtilisateurEditIndex(index);
   };
 
+  const bannirUtilisateur = (index) => {
+    const copie = [...utilisateurs];
+    copie[index].banni = !copie[index].banni;
+    setUtilisateurs(copie);
+  };
+
   const utilisateursFiltres = utilisateurs.filter((u) =>
     `${u.Prenom} ${u.nom}`
       .toLowerCase()
@@ -65,8 +71,9 @@ function App() {
         <TableauPersons
           utilisateurs={utilisateursFiltres}
           supprimerUtilisateur={supprimerUtilisateur}
-          voirUtilisateur={setUtilisateurSelectionne}
           modifierUtilisateur={modifierUtilisateur}
+          voirUtilisateur={setUtilisateurSelectionne}
+          bannirUtilisateur={bannirUtilisateur} // 👈 à ajouter
         />
       </div>
 

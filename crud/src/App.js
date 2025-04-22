@@ -13,6 +13,8 @@ function App() {
   const [utilisateurRecherche, setUtilisateurRecherche] = useState("");
   const [utilisateurSelectionne, setUtilisateurSelectionne] = useState(null);
   const [utilisateurEditIndex, setUtilisateurEditIndex] = useState(null);
+  const [pageActuelle, setPageActuelle] = useState(1);
+  const utilisateursParPage = 5;
 
   useEffect(() => {
     localStorage.setItem("utilisateurs", JSON.stringify(utilisateurs));
@@ -51,6 +53,16 @@ function App() {
       .includes(utilisateurRecherche.toLowerCase())
   );
 
+  const indexDernierUtilisateur = pageActuelle * utilisateursParPage;
+  const indexPremierUtilisateur = indexDernierUtilisateur - utilisateursParPage;
+  const utilisateursAffiches = utilisateursFiltres.slice(
+    indexPremierUtilisateur,
+    indexDernierUtilisateur
+  );
+  const totalPages = Math.ceil(
+    utilisateursFiltres.length / utilisateursParPage
+  );
+
   return (
     <div className="container-fluid p-3">
       <h1 className="text-light text-center my-3">CRUD REACT</h1>
@@ -69,11 +81,14 @@ function App() {
         </div>
 
         <TableauPersons
-          utilisateurs={utilisateursFiltres}
+          utilisateurs={utilisateursAffiches}
           supprimerUtilisateur={supprimerUtilisateur}
           modifierUtilisateur={modifierUtilisateur}
           voirUtilisateur={setUtilisateurSelectionne}
-          bannirUtilisateur={bannirUtilisateur} // 👈 à ajouter
+          bannirUtilisateur={bannirUtilisateur}
+          pageActuelle={pageActuelle}
+          setPageActuelle={setPageActuelle}
+          totalPages={totalPages}
         />
       </div>
 

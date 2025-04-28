@@ -11,7 +11,7 @@ const TableauPersons = ({
   totalPages,
 }) => {
   return (
-    <div className="mt-2">
+    <div className="mt-4">
       <h2>Utilisateurs</h2>
       <div className="user-part">
         <table className="affichage_tableau mt-3">

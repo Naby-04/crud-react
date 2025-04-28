@@ -15,10 +15,11 @@
 }
 body {
   background: #2d3250;
+  /* background: #fff; */
 }
 h1,
 h2 {
-  color: var(--text-white);
+  color: var(--primary-color);
   border-bottom: 2px solid var(--secondary-color) !important;
   width: fit-content;
   margin: 0 auto;
@@ -108,6 +109,8 @@ hr {
 /* tables */
 .user-part {
   overflow-x: auto;
+  padding: 10px;
+  /* box-shadow: 2px 2px 5px 2px; */
 }
 table {
   width: 100%;
@@ -119,7 +122,8 @@ table {
 thead {
   /* border-top-left-radius: 5px; */
   /* border-top-right-radius: 15px; */
-  background: var(--text-white);
+  background: #000;
+  color: #fff;
 }
 thead tr th:first-child {
   border-top-left-radius: 15px;
@@ -131,6 +135,7 @@ thead th,
 td {
   padding: 8px;
   text-align: center;
+  /* border-bottom: 1px solid #2d3250; */
 }
 tbody tr:hover {
   background: var(--primary-color) !important;

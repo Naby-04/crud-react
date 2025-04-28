@@ -3,7 +3,7 @@ import Formulaire from "./Formulaire";
 
 const AddPerson = ({ ajouterUtilisateur, utilisateurEdit }) => {
   return (
-    <div className="p-1 col-6">
+    <div className="p-1 col-3">
       <button
         type="button"
         className="btn btn-success w-100 py-2 rounded-1"

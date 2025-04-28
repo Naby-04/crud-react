@@ -18,17 +18,31 @@ const Formulaire = ({ ajouterUtilisateur, utilisateurEdit }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUtilisateur({
-      ...utilisateur,
-      [name]: value,
-    });
+    if (name === "telephone") {
+      const onlyDigits = value.replace(/\D/g, ""); // Retire tout sauf les chiffres
+      if (onlyDigits.length > 9) return; // Empêche d’aller au-delà de 9 chiffres
+
+      setUtilisateur({
+        ...utilisateur,
+        [name]: onlyDigits,
+      });
+    } else {
+      setUtilisateur({
+        ...utilisateur,
+        [name]: value,
+      });
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (utilisateur.telephone.length !== 9) {
+      alert("Le numéro de téléphone doit contenir exactement 9 chiffres.");
+      return;
+    }
     ajouterUtilisateur(utilisateur);
     setUtilisateur({ Prenom: "", nom: "", email: "", telephone: "" });
-    document.querySelector("#Formulaire .btn-close").click();
+    document.querySelector("#Formulaire .btn-close")?.click();
   };
 
   return (
@@ -71,7 +85,9 @@ const Formulaire = ({ ajouterUtilisateur, utilisateurEdit }) => {
       </div>
       <div className="form-floating mb-3 col-12 col-md-6">
         <input
-          type="text"
+          type="tel"
+          pattern="\d{9}"
+          maxLength={9}
           className="form-control"
           name="telephone"
           placeholder="#"

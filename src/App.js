@@ -3,6 +3,7 @@ import Searchbar from "./Components/Searchbar";
 import AddPerson from "./Components/AddPerson";
 import TableauPersons from "./Components/TableauPersons";
 import ModalDetails from "./Components/ModalDetails";
+import { ToastSuccess } from "./Components/Toast.jsx";
 
 function App() {
   const [utilisateurs, setUtilisateurs] = useState(() => {
@@ -64,11 +65,11 @@ function App() {
   );
 
   return (
-    <div className="container-fluid p-3">
-      <h1 className="text-light text-center my-3">CRUD REACT</h1>
+    <div className="container p-3 m-4 mx-auto">
+      <h1 className="text-center my-1">CRUD REACT</h1>
 
       <div className={utilisateurSelectionne ? "blur-background" : ""}>
-        <div className="row">
+        <div className="row mt-4 justify-content-around">
           <Searchbar setRecherche={setUtilisateurRecherche} />
           <AddPerson
             ajouterUtilisateur={ajouterUtilisateur}
